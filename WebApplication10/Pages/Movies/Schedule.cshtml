@@ -1,0 +1,36 @@
+﻿@page
+@model WebApplication10.Pages.Movies.ScheduleModel
+@{
+    ViewData["Title"] = "Schedule";
+}
+
+<h2>Розклад показів фільмів</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Назва фільму</th>
+            <th></th>
+            <th>Опис</th>
+            <th>Сеанси</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model.ScheduledMovies)
+        {
+                <tr>
+                    <td>@movie.Title</td>
+                    <td><a asp-page="/Movies/FilmDetails" asp-route-id="@movie.Id">View Details</a></td>                    
+                    <td>@movie.Description</td>
+                    <td>
+                        <ul>
+                        @foreach (var showtime in movie.Showtimes)
+                        {
+                                    <li>@showtime.StartTime.ToString("yyyy-MM-dd HH:mm")</li>
+                        }
+                        </ul>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,20 @@
+﻿@page
+@model WebApplication10.Pages.Movies.FilmDetailsModel
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Film Details</title>
+</head>
+<body>
+    <h1>Film Details</h1>
+    <div>
+        <h2>@Model.Movie.Title</h2>
+        <p>Director: @Model.Movie.Director</p>
+        <p>Genre: @Model.Movie.Genre</p>
+        <p>Description: @Model.Movie.Description</p>
+    </div>
+    <div>
+        <a asp-page="/Movies/Schedule">Back to Schedule</a>
+    </div>
+</body>
+</html>
